@@ -1,6 +1,6 @@
 buildscript {
     ext {
-        kotlinVersion = '1.2.61'
+        kotlinVersion = '1.2.70'
         springBootVersion = '2.0.4.RELEASE'
     }
     repositories {
@@ -14,7 +14,7 @@ buildscript {
 }
 
 plugins {
-	id 'org.jetbrains.kotlin.jvm' version '1.2.61'
+	id 'org.jetbrains.kotlin.jvm' version '1.2.70'
 
 	// Needed so we can resolve the test library from the artifactory
 	id "com.jfrog.artifactory" version "4.7.5"
@@ -65,6 +65,11 @@ dependencies {
 	compile('com.fasterxml.jackson.module:jackson-module-kotlin')
 	compile("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
 	compile("org.jetbrains.kotlin:kotlin-reflect")
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+
+	// The canonical docker client implementation
+	compile group: 'de.difuture.ekut.pht', name: 'docker-client-implementation', version: '0.0.2'
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
